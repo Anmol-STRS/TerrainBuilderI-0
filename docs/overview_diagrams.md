@@ -42,10 +42,10 @@ graph TB
     H --> J
     J --> K
     
-    style A fill:#e1f5ff
-    style K fill:#c8e6c9
-    style H fill:#fff9c4
-    style I fill:#ffccbc
+    style A fill:#E3F2FD
+    style K fill:#E8F5E9
+    style H fill:#FFF9C4
+    style I fill:#FFCCBC
 ```
 
 ---
@@ -93,16 +93,16 @@ graph LR
     A10 --> B10
     A10 --> B11
     
-    style A1 fill:#e3f2fd
-    style A2 fill:#e3f2fd
-    style A3 fill:#e3f2fd
-    style A4 fill:#fff3e0
-    style A5 fill:#fff3e0
-    style A6 fill:#f3e5f5
-    style A7 fill:#f3e5f5
-    style A8 fill:#e8f5e9
-    style A9 fill:#fce4ec
-    style A10 fill:#ffebee
+    style A1 fill:#E3F2FD
+    style A2 fill:#E3F2FD
+    style A3 fill:#E3F2FD
+    style A4 fill:#FFF3E0
+    style A5 fill:#FFF3E0
+    style A6 fill:#F3E5F5
+    style A7 fill:#F3E5F5
+    style A8 fill:#E8F5E9
+    style A9 fill:#FCE4EC
+    style A10 fill:#FFEBEE
 ```
 
 ---
@@ -147,12 +147,12 @@ flowchart TD
     Finalize --> Stats[Report Statistics<br/>Cache hits, Time, etc.]
     Stats --> End([Complete!])
     
-    style Start fill:#c8e6c9
-    style End fill:#c8e6c9
-    style Extract fill:#fff9c4
-    style Process fill:#ffccbc
-    style Cache fill:#e1bee7
-    style Write fill:#90caf9
+    style Start fill:#C8E6C9
+    style End fill:#C8E6C9
+    style Extract fill:#FFF9C4
+    style Process fill:#FFCCBC
+    style Cache fill:#E1BEE7
+    style Write fill:#90CAF9
 ```
 
 ---
@@ -186,11 +186,11 @@ graph TB
     F --> E
     G --> E
     
-    style A fill:#ffccbc
-    style B fill:#fff9c4
-    style C fill:#c8e6c9
-    style D fill:#e1bee7
-    style E fill:#ffcdd2
+    style A fill:#FFCCBC
+    style B fill:#FFF9C4
+    style C fill:#C8E6C9
+    style D fill:#E1BEE7
+    style E fill:#FFCDD2
 ```
 
 ---
@@ -233,13 +233,13 @@ graph TB
     H --> J
     I --> J
     
-    style A fill:#e1f5ff
-    style B fill:#c8e6c9
-    style C fill:#c8e6c9
-    style D fill:#ffccbc
-    style E fill:#fff9c4
-    style F fill:#e1bee7
-    style J fill:#4caf50
+    style A fill:#E3F2FD
+    style B fill:#C8E6C9
+    style C fill:#C8E6C9
+    style D fill:#FFCCBC
+    style E fill:#FFF9C4
+    style F fill:#E1BEE7
+    style J fill:#81C784
 ```
 
 ---
@@ -516,13 +516,13 @@ graph TB
     J --> M
     K --> M
     
-    style A fill:#e1f5ff
-    style B fill:#fff3e0
-    style C fill:#c8e6c9
-    style F fill:#ffcdd2
-    style J fill:#c8e6c9
-    style K fill:#ffccbc
-    style M fill:#e1bee7
+    style A fill:#E3F2FD
+    style B fill:#FFF3E0
+    style C fill:#C8E6C9
+    style F fill:#FFCDD2
+    style J fill:#C8E6C9
+    style K fill:#FFCCBC
+    style M fill:#E1BEE7
 ```
 
 ---
@@ -637,11 +637,11 @@ graph TB
     
     I --> J
     
-    style B fill:#fff3e0
-    style C fill:#fff3e0
-    style E fill:#c8e6c9
-    style G fill:#ffccbc
-    style J fill:#4caf50
+    style B fill:#FFF3E0
+    style C fill:#FFF3E0
+    style E fill:#C8E6C9
+    style G fill:#FFCCBC
+    style J fill:#81C784
 ```
 
 ---
@@ -687,52 +687,17 @@ graph LR
     B -->|Fast path| C2
     B -->|Fallback| D
     
-    style C1 fill:#c8e6c9
-    style C2 fill:#fff9c4
-    style D fill:#ffccbc
+    style C1 fill:#C8E6C9
+    style C2 fill:#FFF9C4
+    style D fill:#FFCCBC
 ```
 
 ---
 
 ## 12. Performance Comparison
 
-### 12a. Processing Time Comparison (Bar Chart)
 
-```mermaid
-%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#ff6b6b','primaryTextColor':'#fff','primaryBorderColor':'#c92a2a','lineColor':'#4dabf7','secondaryColor':'#51cf66','tertiaryColor':'#ffd43b'}}}%%
-graph LR
-    subgraph "Processing Time for 60GB Dataset"
-        A["HEC-RAS Baseline<br/>███████████████ 15.0 hrs"]
-        B["Current Pipeline<br/>███ 3.0 hrs<br/>5× faster"]
-        C["With Custom I/O<br/>█ 1.2 hrs<br/>12.5× faster"]
-        D["With GPU Future<br/>▌ 0.55 hrs<br/>27× faster"]
-    end
-
-    style A fill:#ffcdd2,stroke:#c92a2a,stroke-width:3px
-    style B fill:#fff9c4,stroke:#f59f00,stroke-width:3px
-    style C fill:#c8e6c9,stroke:#2b8a3e,stroke-width:3px
-    style D fill:#4caf50,stroke:#1b5e20,stroke-width:3px
-```
-
-### 12b. Throughput Comparison (Bar Chart)
-
-```mermaid
-%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#4dabf7'}}}%%
-graph LR
-    subgraph "Data Processing Throughput (MB/s)"
-        A["HEC-RAS<br/>█ 1.1 MB/s"]
-        B["Current<br/>██████ 6.3 MB/s<br/>5.7× faster"]
-        C["Custom I/O<br/>██████████████ 15.6 MB/s<br/>14× faster"]
-        D["GPU Future<br/>███████████████████████████████ 38.2 MB/s<br/>35× faster"]
-    end
-
-    style A fill:#ffcdd2,stroke:#c92a2a,stroke-width:3px
-    style B fill:#fff9c4,stroke:#f59f00,stroke-width:3px
-    style C fill:#c8e6c9,stroke:#2b8a3e,stroke-width:3px
-    style D fill:#4caf50,stroke:#1b5e20,stroke-width:3px
-```
-
-### 12c. Speedup Factor (Visual Scale)
+### 12a. Speedup Factor (Visual Scale)
 
 ```mermaid
 graph TD
@@ -747,13 +712,13 @@ graph TD
     B -->|Phase 3<br/>Memory-mapped I/O<br/>+ SIMD Kernels| C
     C -->|Phase 4<br/>CUDA GPU<br/>+ Async I/O| D
 
-    style A fill:#ffcdd2,stroke:#c92a2a,stroke-width:4px
-    style B fill:#fff9c4,stroke:#f59f00,stroke-width:4px
-    style C fill:#c8e6c9,stroke:#2b8a3e,stroke-width:4px
-    style D fill:#4caf50,stroke:#1b5e20,stroke-width:4px
+    style A fill:#FFCDD2,stroke:#E57373,stroke-width:4px
+    style B fill:#FFF9C4,stroke:#FFB74D,stroke-width:4px
+    style C fill:#C8E6C9,stroke:#81C784,stroke-width:4px
+    style D fill:#81C784,stroke:#66BB6A,stroke-width:4px
 ```
 
-### 12d. Performance Metrics Table
+### 12b. Performance Metrics Table
 
 | Metric | HEC-RAS | Current | Custom I/O | GPU Future |
 |--------|---------|---------|------------|------------|
@@ -763,20 +728,17 @@ graph TD
 | **Cost/Run** | High | Medium | Low | Very Low |
 | **Status** | Baseline | Deployed | In Progress | Planned |
 
-### 12e. Time Breakdown Comparison
+### 12c. Time Breakdown Comparison
 
 ```mermaid
-%%{init: {'theme':'base'}}%%
 pie title "HEC-RAS: 15 hours total"
     "I/O Operations" : 60
     "Resampling" : 25
     "Mosaicking" : 10
     "Writing Output" : 5
-
 ```
 
 ```mermaid
-%%{init: {'theme':'base'}}%%
 pie title "Current Pipeline: 3 hours total"
     "I/O Operations" : 40
     "Resampling" : 30
@@ -785,7 +747,6 @@ pie title "Current Pipeline: 3 hours total"
 ```
 
 ```mermaid
-%%{init: {'theme':'base'}}%%
 pie title "Custom I/O (Projected): 1.2 hours"
     "I/O Operations" : 20
     "Resampling" : 35
@@ -833,11 +794,11 @@ graph TB
     E -.-> J
     F -.-> J
     
-    style D fill:#ffccbc
-    style E fill:#4caf50
-    style F fill:#4caf50
-    style G fill:#c8e6c9
-    style J fill:#4caf50
+    style D fill:#FFCCBC
+    style E fill:#81C784
+    style F fill:#81C784
+    style G fill:#C8E6C9
+    style J fill:#81C784
 ```
 
 ---
@@ -905,12 +866,12 @@ graph TB
     
     B -.-> I
     
-    style A fill:#e1f5ff
-    style C1 fill:#c8e6c9
-    style C2 fill:#c8e6c9
-    style C3 fill:#c8e6c9
-    style C4 fill:#c8e6c9
-    style E fill:#fff9c4
+    style A fill:#E3F2FD
+    style C1 fill:#C8E6C9
+    style C2 fill:#C8E6C9
+    style C3 fill:#C8E6C9
+    style C4 fill:#C8E6C9
+    style E fill:#FFF9C4
 ```
 
 ---
@@ -923,7 +884,7 @@ C4Context
     
     Person(user, "GIS Analyst", "Needs unified terrain<br/>for HEC-RAS modeling")
     
-    System(terrain_builder, "Terrain Builder", "High-performance<br/>terrain preprocessing<br/>5,302 LOC")
+    System(terrain_builder, "Terrain Builder", "High-performance<br/>terrain preprocessing<br/>65,302 LOC")
     
     System_Ext(dem_sources, "DEM Data Sources", "360 GeoTIFF files<br/>60 GB total<br/>Various CRS")
     
